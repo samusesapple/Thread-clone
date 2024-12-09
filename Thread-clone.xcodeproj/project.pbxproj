@@ -30,11 +30,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F184C1F12D05AFC80046BAE1 /* Thread-clone */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Thread-clone";
-			sourceTree = "<group>";
-		};
 		F184C2022D05AFCA0046BAE1 /* Thread-cloneTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Thread-cloneTests";
@@ -43,6 +38,11 @@
 		F184C20C2D05AFCA0046BAE1 /* Thread-cloneUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Thread-cloneUITests";
+			sourceTree = "<group>";
+		};
+		F1FFAC612D05B1C90005688C /* Thread-clone */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Thread-clone";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +75,7 @@
 		F184C1E62D05AFC80046BAE1 = {
 			isa = PBXGroup;
 			children = (
-				F184C1F12D05AFC80046BAE1 /* Thread-clone */,
+				F1FFAC612D05B1C90005688C /* Thread-clone */,
 				F184C2022D05AFCA0046BAE1 /* Thread-cloneTests */,
 				F184C20C2D05AFCA0046BAE1 /* Thread-cloneUITests */,
 				F184C1F02D05AFC80046BAE1 /* Products */,
@@ -108,7 +108,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				F184C1F12D05AFC80046BAE1 /* Thread-clone */,
+				F1FFAC612D05B1C90005688C /* Thread-clone */,
 			);
 			name = "Thread-clone";
 			packageProductDependencies = (
