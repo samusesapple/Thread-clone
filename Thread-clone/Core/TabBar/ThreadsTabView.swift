@@ -13,33 +13,33 @@ struct ThreadsTabView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             Tab(value: .feed) {
-                Text("피드")
+                FeedView()
             } label: {
                 Image(systemName: selectedTab == .feed ? "house.fill" : "house")
                     .environment(\.symbolVariants, selectedTab == .feed ? .fill : .none)
             }
             
             Tab(value: .search) {
-                Text("검색")
+                SearchView()
             } label: {
                 Image(systemName: "magnifyingglass")
             }
             
-            Tab(value: .writePost) {
-                Text("게시물 작성")
+            Tab(value: .post) {
+                PostView()
             } label: {
                 Image(systemName: "plus")
             }
             
             Tab(value: .activity) {
-                Text("활동")
+                ActivityView()
             } label: {
                 Image(systemName: selectedTab == .activity ? "heart.fill" : "heart")
                     .environment(\.symbolVariants, selectedTab == .activity ? .fill : .none)
             }
             
             Tab(value: .user) {
-                Text("유저 정보")
+                UserView()
             } label: {
                 Image(systemName: selectedTab == .user ? "person.fill" : "person")
                     .environment(\.symbolVariants, selectedTab == .user ? .fill : .none)
@@ -54,7 +54,7 @@ extension ThreadsTabView {
     enum TabSelection: Hashable {
         case feed
         case search
-        case writePost
+        case post
         case activity
         case user
     }
