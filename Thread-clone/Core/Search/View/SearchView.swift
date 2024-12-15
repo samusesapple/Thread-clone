@@ -22,6 +22,8 @@ struct SearchView: View {
                     .padding(.vertical, 4)
                 }
             }
+            .navigationTitle("검색")
+            .navigationBarTitleDisplayMode(.large)
             .searchable(text: $searchText, prompt: "검색")
         }
     }
