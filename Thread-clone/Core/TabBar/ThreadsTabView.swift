@@ -38,11 +38,11 @@ struct ThreadsTabView: View {
                     .environment(\.symbolVariants, selectedTab == .activity ? .fill : .none)
             }
             
-            Tab(value: .user) {
-                UserView()
+            Tab(value: .profile) {
+                ProfileView()
             } label: {
-                Image(systemName: selectedTab == .user ? "person.fill" : "person")
-                    .environment(\.symbolVariants, selectedTab == .user ? .fill : .none)
+                Image(systemName: selectedTab == .profile ? "person.fill" : "person")
+                    .environment(\.symbolVariants, selectedTab == .profile ? .fill : .none)
             }
         }
         .tint(.black)
@@ -56,7 +56,7 @@ extension ThreadsTabView {
         case search
         case post
         case activity
-        case user
+        case profile
     }
 }
 
