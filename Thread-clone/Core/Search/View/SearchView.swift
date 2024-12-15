@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State private var searchText: String = ""
+    
     var body: some View {
-        Text("검색 화면")
+        NavigationStack {
+            ScrollView {
+                LazyVStack {
+                    ForEach(0...10, id: \.self) { user in
+                        UserCell()
+                        
+                        Divider()
+                    }
+                    .padding(.vertical, 4)
+                }
+            }
+            .searchable(text: $searchText, prompt: "검색")
+        }
     }
 }
 

@@ -13,10 +13,7 @@ struct FeedCell: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                Image("sam")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
+                CircularProfileImageView(imageName: "sam")
                 
                 VStack(alignment: .leading, spacing: 6) {
                     HStack(spacing: 6) {
