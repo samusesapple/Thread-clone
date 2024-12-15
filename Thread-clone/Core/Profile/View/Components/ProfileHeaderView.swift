@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
+    var isSelf: Bool = false
+    
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -38,38 +40,51 @@ struct ProfileHeaderView: View {
                     .clipShape(Circle())
             }
             
-            HStack {
-                // 프로필 편집
-                Button {
-                    print("프로필 편집하기")
-                } label: {
-                    Text("프로필 편집")
-                        .frame(maxWidth: .infinity, minHeight: 32)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color(.systemGray6), lineWidth: 2)
-                        }
-                }
-                
-                // 프로필 공유
-                Button {
-                    print("프로필 공유하기")
-                } label: {
-                    Text("프로필 공유")
-                        .frame(maxWidth: .infinity, minHeight: 32)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color(.systemGray6), lineWidth: 2)
-                        }
-                }
+            if isSelf {
+                getSelfUserButtons()
+            } else {
+                getOtherUserButton()
             }
-            .tint(.black)
-            .font(.subheadline)
-            .bold()
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
+
+// MARK: - ViewBuilder
+extension ProfileHeaderView {
+    
+    @ViewBuilder
+    private func getSelfUserButtons() -> some View {
+        HStack(spacing: 12) {
+            StyledButton(
+                title: "프로필 편집",
+                action: { print("프로필 편집하기") },
+                textColor: .black,
+                backgroundColor: .clear,
+                border: Color(.systemGray6)
+            )
+            
+            StyledButton(
+                title: "프로필 공유",
+                action: { print("프로필 공유하기") },
+                textColor: .black,
+                backgroundColor: .clear,
+                border: Color(.systemGray6)
+            )
+        }
+    }
+    
+    @ViewBuilder
+    private func getOtherUserButton() -> some View {
+        StyledButton(
+            title: "팔로우",
+            action: { print("팔로우/언팔로우 하기") },
+            textColor: .white,
+            backgroundColor: .black
+        )
+    }
+}
+
 
 #Preview {
     ProfileHeaderView()
