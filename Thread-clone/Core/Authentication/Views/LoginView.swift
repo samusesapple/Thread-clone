@@ -14,17 +14,24 @@ struct LoginView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Spacer()
+                
                 Image("threads-logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 120, height: 120)
                     .padding()
                 
-                // id, pw textfield
                 VStack(spacing: 16) {
-                    TextField("이메일을 입력해 주세요.", text: $email)
+                    InputField(placeholder: "이메일을 입력해 주세요", value: $email)
+                    
                     SecureField("비밀번호를 입력해 주세요.", text: $password)
+                        .font(.subheadline)
+                        .padding(12)
+                        .background(Color(.systemGray6))
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                 }
+                .padding(.horizontal)
                 
                 NavigationLink {
                     Text("비밀번호 찾기 화면")
@@ -32,13 +39,14 @@ struct LoginView: View {
                     Text("비밀번호 찾기")
                         .font(.footnote)
                         .fontWeight(.semibold)
-                        .padding()
+                        .padding(.vertical)
+                        .padding(.trailing, 28)
                         .foregroundStyle(.black)
-                        .frame(width: .infinity, alignment: .trailing)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 
                 Button {
-                    
+                    // 로그인 액션
                 } label: {
                     RoundedRectangle(cornerRadius: 8)
                         .overlay {
@@ -50,9 +58,27 @@ struct LoginView: View {
                         .frame(width: .infinity, height: 44)
                         .foregroundStyle(.black)
                 }
+                .padding(.horizontal)
+                
+                Spacer()
+                
+                Divider()
+                
+                NavigationLink {
+                    RegistrationView()
+                } label: {
+                    HStack(spacing: 3) {
+                        Text("계정이 없으신가요?")
+                        Text("회원가입 하기")
+                            .bold()
+                    }
+                    .font(.footnote)
+                    .foregroundStyle(.black)
+                    .padding(.vertical, 16)
+                }
+
             }
         }
-        .padding(.horizontal)
     }
 }
 
