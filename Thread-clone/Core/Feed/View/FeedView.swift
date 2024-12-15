@@ -9,17 +9,35 @@ import SwiftUI
 
 struct FeedView: View {
     var body: some View {
-        ScrollView {
-            ForEach(0..<10, id: \.self) { index in
-                FeedCell()
-                Divider()
+        NavigationStack {
+            ScrollView {
+                LazyVStack {
+                    ForEach(0..<10, id: \.self) { index in
+                        FeedCell()
+                    }
+                }
             }
-            .padding()
+            .refreshable {
+                print("피드 새로고침")
+            }
+            .navigationTitle("Threads")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle("Threads")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                 print("피드 새로고침")
+                } label: {
+                    Image(systemName: "arrow.counterclockwise")
+                        .foregroundStyle(.black)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    FeedView()
+    NavigationStack {
+        FeedView()
+    }
 }
