@@ -24,25 +24,23 @@ struct RegistrationView: View {
                 .padding()
             
             VStack {
-                InputField(placeholder: "이메일을 입력해 주세요.", value: $email)
-                InputField(placeholder: "비밀번호를 입력해 주세요.", value: $password)
-                InputField(placeholder: "성함을 입력해 주세요.", value: $fullName)
-                InputField(placeholder: "닉네임을 입력해 주세요.", value: $userName)
+                TextField("이메일을 입력해 주세요.", text: $email)
+                    .textInputAutocapitalization(.never)
+                    .modifier(ThreadsTextFieldModifier())
+                SecureField("비밀번호를 입력해 주세요.", text: $password)
+                    .modifier(ThreadsTextFieldModifier())
+                TextField("성함을 입력해 주세요.", text: $fullName)
+                    .modifier(ThreadsTextFieldModifier())
+                TextField("닉네임을 입력해 주세요.", text: $userName)
+                    .modifier(ThreadsTextFieldModifier())
             }
             .padding(.horizontal)
             
             Button {
                 print("회원가입 하기")
             } label: {
-                RoundedRectangle(cornerRadius: 10)
-                    .overlay(content: {
-                        Text("회원가입 하기")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(.white)
-                    })
-                    .frame(height: 44)
-                    .foregroundStyle(.black)
+                Text("회원가입 하기")
+                    .modifier(ThreadsButtonModifier())
             }
             .padding()
 

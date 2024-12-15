@@ -23,13 +23,12 @@ struct LoginView: View {
                     .padding()
                 
                 VStack(spacing: 16) {
-                    InputField(placeholder: "이메일을 입력해 주세요", value: $email)
+                    TextField("이메일을 입력해 주세요", text: $email)
+                        .textInputAutocapitalization(.never)
+                        .modifier(ThreadsTextFieldModifier())
                     
                     SecureField("비밀번호를 입력해 주세요.", text: $password)
-                        .font(.subheadline)
-                        .padding(12)
-                        .background(Color(.systemGray6))
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .modifier(ThreadsTextFieldModifier())
                 }
                 .padding(.horizontal)
                 
@@ -48,15 +47,8 @@ struct LoginView: View {
                 Button {
                     // 로그인 액션
                 } label: {
-                    RoundedRectangle(cornerRadius: 8)
-                        .overlay {
-                            Text("로그인")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .foregroundStyle(.white)
-                        }
-                        .frame(width: .infinity, height: 44)
-                        .foregroundStyle(.black)
+                    Text("로그인 하기")
+                        .modifier(ThreadsButtonModifier())
                 }
                 .padding(.horizontal)
                 
