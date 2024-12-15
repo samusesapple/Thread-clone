@@ -11,7 +11,7 @@ import SwiftUI
 struct Thread_cloneApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ThreadsTabView()
         }
     }
 }
