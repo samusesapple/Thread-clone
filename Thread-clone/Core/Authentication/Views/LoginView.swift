@@ -47,7 +47,7 @@ struct LoginView: View {
                 Button {
                     // 로그인 액션
                 } label: {
-                    Text("로그인 하기")
+                    Text("로그인")
                         .modifier(ThreadsButtonModifier())
                 }
                 .padding(.horizontal)
@@ -58,6 +58,7 @@ struct LoginView: View {
                 
                 NavigationLink {
                     RegistrationView()
+                        .navigationBarBackButtonHidden(true)
                 } label: {
                     HStack(spacing: 3) {
                         Text("계정이 없으신가요?")

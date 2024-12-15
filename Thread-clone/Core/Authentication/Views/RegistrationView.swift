@@ -12,6 +12,7 @@ struct RegistrationView: View {
     @State private var password: String = ""
     @State private var fullName: String = ""
     @State private var userName: String = ""
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -37,9 +38,9 @@ struct RegistrationView: View {
             .padding(.horizontal)
             
             Button {
-                print("회원가입 하기")
+                dismiss()
             } label: {
-                Text("회원가입 하기")
+                Text("회원가입")
                     .modifier(ThreadsButtonModifier())
             }
             .padding()
