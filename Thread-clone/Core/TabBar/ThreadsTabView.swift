@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ThreadsTabView: View {
-    @State private var selectedTab: TabSelection = .feed
+    @State private var selectedTab: ThreadsTabSelection = .feed
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -46,17 +46,6 @@ struct ThreadsTabView: View {
             }
         }
         .tint(.black)
-    }
-}
-
-// MARK: - TabBar values
-extension ThreadsTabView {
-    enum TabSelection: Hashable {
-        case feed
-        case search
-        case post
-        case activity
-        case profile
     }
 }
 
