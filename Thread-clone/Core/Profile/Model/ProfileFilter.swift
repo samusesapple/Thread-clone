@@ -10,7 +10,6 @@ import Foundation
 enum ProfileTopFilter: Int, CaseIterable, Identifiable {
     case threads
     case replies
-    case likes
     
     var title: String {
         switch self {
@@ -18,8 +17,6 @@ enum ProfileTopFilter: Int, CaseIterable, Identifiable {
             "Threads"
         case .replies:
             "Replies"
-        case .likes:
-            "Likes"
         }
     }
     

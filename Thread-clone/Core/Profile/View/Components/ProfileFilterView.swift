@@ -45,14 +45,21 @@ struct ProfileFilterView: View {
                     }
                 }
             }
-            VStack {
-                if selectedFilter == .threads {
-                    FeedCell()
-                }
-                if selectedFilter == .replies {
-                    Text("replies")
-                }
+            LazyVStack {
+                getCells(for: selectedFilter)
             }
+        }
+    }
+}
+
+extension ProfileFilterView {
+    @ViewBuilder
+    func getCells(for selectedFilter: ProfileTopFilter) -> some View {
+        switch selectedFilter {
+        case .threads:
+            FeedCell()
+        case .replies:
+            Text("replies")
         }
     }
 }
