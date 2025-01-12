@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ProfileFilterView: View {
     @Binding var selectedFilter: ProfileTopFilter
-    
     @Namespace var animation
+
+    private var filterBarWidth: CGFloat? {
+        let totalCount: CGFloat = CGFloat(ProfileTopFilter.allCases.count)
+        let screenWidth: CGFloat = UIWindow.current?.screen.bounds.width ?? 0
+        return (screenWidth / totalCount) - 16
+    }
     
     var body: some View {
         VStack {
@@ -24,12 +29,12 @@ struct ProfileFilterView: View {
                         if selectedFilter == filter {
                             Rectangle()
                                 .foregroundStyle(.black)
-                                .frame(width: UIScreen.main.bounds.width / 2, height: 1)
-                                .matchedGeometryEffect(id: "selectedFilter", in: animation)
+                                .frame(width: filterBarWidth, height: 1)
+                                .matchedGeometryEffect(id: "item", in: animation)
                         } else {
                             Rectangle()
-                                .foregroundStyle(.clear)
-                                .frame(width: UIScreen.main.bounds.width / 2, height: 1)
+                                .foregroundStyle(.gray.opacity(0.2))
+                                .frame(width: filterBarWidth, height: 1)
                         }
                             
                     }
@@ -38,6 +43,14 @@ struct ProfileFilterView: View {
                             selectedFilter = filter
                         }
                     }
+                }
+            }
+            VStack {
+                if selectedFilter == .threads {
+                    FeedCell()
+                }
+                if selectedFilter == .replies {
+                    Text("replies")
                 }
             }
         }

@@ -12,7 +12,7 @@ struct ProfileView: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack {
+            VStack(spacing: 14) {
                 ProfileHeaderView()
                 
                 ProfileFilterView(selectedFilter: $selectedFilter)
