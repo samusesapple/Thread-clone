@@ -18,7 +18,7 @@ struct EditProfileView: View {
                 Color(.systemGroupedBackground)
                     .ignoresSafeArea(edges: [.bottom, .horizontal])
                 
-                VStack {
+                VStack(spacing: 12) {
                     // name, profileImage
                     HStack {
                         VStack(alignment: .leading) {

@@ -8,24 +8,30 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
+    var user: User
     var isSelf: Bool = false
+    
+    init(_ user: User, isSelf: Bool = false) {
+        self.user = user
+        self.isSelf = isSelf
+    }
     
     var body: some View {
         VStack {
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text("유저 이름")
+                    Text(user.name)
                         .font(.title2)
                         .bold()
                     
-                    Text("user_id")
+                    Text(user.id)
                         .font(.callout)
                     
-                    Text("유저 소개글")
+                    Text(user.introText)
                         .font(.callout)
                         .padding(.vertical, 10)
                     
-                    Text("팔로워 0명")
+                    Text("팔로워 \(user.followers.count)명")
                         .font(.caption)
                         .foregroundStyle(Color(.systemGray))
                         .padding(.bottom, 10)
@@ -87,5 +93,5 @@ extension ProfileHeaderView {
 
 
 #Preview {
-    ProfileHeaderView()
+    ProfileHeaderView(User.DUMMY_USER)
 }
