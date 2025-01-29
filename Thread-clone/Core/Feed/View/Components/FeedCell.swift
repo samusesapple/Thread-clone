@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct FeedCell: View {
-    var post: Post?
+    var post: Post
     
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                CircularProfileImageView(imageName: "sam")
+                CircularProfileImageView(imageName: post.user.profileImage ?? "user-placeholder")
                 
                 VStack(alignment: .leading, spacing: 6) {
                     HStack(spacing: 6) {
-                        Text(post?.userName ?? "성현관")
+                        Text(post.user.id)
                             .font(.callout)
                             .bold()
                         
                         Spacer()
                         
-                        Text(timeAgo(from: post?.date ?? Date()))
+                        Text(timeAgo(from: post.date))
                             .font(.caption)
                             .foregroundStyle(Color(.systemGray))
                         
@@ -31,7 +31,7 @@ struct FeedCell: View {
                             .font(.system(size: 16))
                     }
                     
-                    Text(post?.detail ?? "게시물 내용")
+                    Text(post.detail)
                         .font(.callout)
                     
                     HStack(spacing: 12) {
@@ -68,7 +68,8 @@ struct FeedCell: View {
                     .padding(.vertical, 8)
                 }
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.top, 4)
             
             Divider()
                 .padding(.horizontal)
@@ -91,5 +92,5 @@ extension FeedCell {
 }
 
 #Preview {
-    FeedCell()
+    FeedCell(post: Post.DUMMY_POST)
 }

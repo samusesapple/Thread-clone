@@ -26,5 +26,9 @@ struct User {
 }
 
 extension User {
-    static var DUMMY_USER = User(name: "성현관", id: "samusesapple", introText: "iOS 개발자 성현관", profileImage: nil, followers: [], followee: [])
+    static var DUMMY_USER = User(name: "성현관", id: "samusesapple", introText: "iOS 개발자 성현관", profileImage: "sam", followers: [], followee: [])
+    
+    static func getSelfProfile() -> Self {
+        return DUMMY_USER
+    }
 }

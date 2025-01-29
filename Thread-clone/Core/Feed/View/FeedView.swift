@@ -13,7 +13,7 @@ struct FeedView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(0..<10, id: \.self) { index in
-                        FeedCell()
+                        FeedCell(post: Post.DUMMY_POST)
                     }
                 }
             }

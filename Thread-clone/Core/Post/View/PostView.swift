@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct PostView: View {
+    @State private var showNewPostModal = true
+    
     var body: some View {
-        Text("게시물 작성")
+        Text("new post")
+            .sheet(isPresented: self.$showNewPostModal) {
+                NewPostModal()
+            }
     }
 }
 

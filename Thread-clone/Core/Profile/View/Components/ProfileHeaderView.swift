@@ -39,7 +39,7 @@ struct ProfileHeaderView: View {
                 
                 Spacer()
                 
-                Image("user-placeholder")
+                Image(user.profileImage ?? "user-placeholder")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 60, height: 60)

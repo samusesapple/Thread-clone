@@ -39,7 +39,7 @@ struct ThreadsTabView: View {
             }
             
             Tab(value: .profile) {
-                ProfileView()
+                ProfileView(user: User.getSelfProfile())
             } label: {
                 Image(systemName: selectedTab == .profile ? "person.fill" : "person")
                     .environment(\.symbolVariants, selectedTab == .profile ? .fill : .none)
@@ -48,6 +48,7 @@ struct ThreadsTabView: View {
         .tint(.black)
     }
 }
+
 
 #Preview {
     ThreadsTabView()

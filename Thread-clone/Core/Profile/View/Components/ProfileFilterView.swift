@@ -57,7 +57,7 @@ extension ProfileFilterView {
     func getCells(for selectedFilter: ProfileTopFilter) -> some View {
         switch selectedFilter {
         case .threads:
-            FeedCell()
+            FeedCell(post: Post.DUMMY_POST)
         case .replies:
             Text("replies")
         }

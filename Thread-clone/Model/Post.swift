@@ -8,7 +8,11 @@
 import Foundation
 
 struct Post {
-    var userName: String
+    var user: User
     var detail: String
     var date: Date
+}
+
+extension Post {
+    static var DUMMY_POST = Post(user: User.DUMMY_USER, detail: "테스트 Post Detail", date: Date())
 }

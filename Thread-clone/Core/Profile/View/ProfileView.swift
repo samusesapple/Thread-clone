@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @State private var selectedFilter: ProfileTopFilter = .threads
-    var user: User = User.DUMMY_USER
+    var user: User
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -23,5 +23,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(user: User.DUMMY_USER)
 }
